@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Account - SCHEDYOULATER</title>
+
+  <link rel="stylesheet" href="account.css">
+</head>
+<body>
+  <header>
+    <h2 class="logo">SCHEDYOULATER</h2>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="class.html">Class</a></li>
+      <li><a href="reminders.html">Reminders</a></li>
+      <li><a href="account.html">Account</a></li>
+    </ul>
+  </header>
+
+  <main>
+    <div class="account-card">
+      <div class="profile-pic">👤</div>
+      <h1>My Account</h1>
+
+      <form id="accountForm">
+        <div class="info">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" value="Juan Dela Cruz" readonly>
+        </div>
+
+        <div class="info">
+          <label for="username">Username</label>
+          <input type="text" id="username" value="juandelacruz" readonly>
+        </div>
+
+        <div class="info">
+          <label for="email">Email</label>
+          <input type="email" id="email" value="juan@example.com" readonly>
+        </div>
+
+        <div class="info">
+          <label for="password">Password</label>
+          <input type="password" id="password" value="mypassword123" readonly>
+        </div>
+
+        <button type="button" class="btn" id="editBtn">Edit Profile</button>
+        <button type="button" class="btn" id="saveBtn" style="display:none;">Save Changes</button>
+        <button type="button" class="btn btn-logout" id="logoutBtn">Log Out</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 SCHEDYOULATER | Account Page</p>
+  </footer>
+
+  <script>
+    const editBtn = document.getElementById('editBtn');
+    const saveBtn = document.getElementById('saveBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const inputs = document.querySelectorAll('.info input');
+
+    editBtn.addEventListener('click', () => {
+      inputs.forEach(input => input.removeAttribute('readonly'));
+      editBtn.style.display = 'none';
+      saveBtn.style.display = 'block';
+    });
+
+    saveBtn.addEventListener('click', () => {
+      inputs.forEach(input => input.setAttribute('readonly', true));
+      editBtn.style.display = 'block';
+      saveBtn.style.display = 'none';
+      alert('✅ Your account details have been updated!');
+    });
+
+    logoutBtn.addEventListener('click', () => {
+      const confirmLogout = confirm("Are you sure you want to log out?");
+      if (confirmLogout) {
+        alert("👋 You have been logged out.");
+        window.location.href = "index.html";
+      }
+    });
+  </script>
+</body>
+</html>

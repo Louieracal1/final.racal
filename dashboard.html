@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard - SCHEDYOULATER</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+  <header>
+    <h2 class="logo">SCHEDYOULATER</h2>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="class.html">Class</a></li>
+      <li><a href="reminders.html">Reminders</a></li>
+      <li><a href="account.html">Account</a></li>
+    </ul>
+  </header>
+
+  <main>
+    <h1>Welcome to SCHEDYOULATER 🎓</h1>
+    <p><strong>SCHEDYOULATER</strong> is your personal student timetable planner designed to help you manage your classes, assignments, and reminders all in one place! Stay on top of your schedule and never miss a deadline again.</p>
+
+    <div class="cards">
+      <div class="card" onclick="window.location.href='class.html'">
+        <h2>📚 Classes</h2>
+        <p>View your class schedule and subjects easily.</p>
+      </div>
+
+      <div class="card" onclick="window.location.href='reminders.html'">
+        <h2>📝 Reminders</h2>
+        <p>Keep track of assignments, exams, and deadlines.</p>
+      </div>
+
+      <div class="card" onclick="window.location.href='account.html'">
+        <h2>👤 Account</h2>
+        <p>View and manage your personal account information.</p>
+      </div>
+    </div>
+
+    <button class="btn" onclick="location.reload()">🔄 Refresh Dashboard</button>
+  </main>
+
+  <footer>
+    <p>© 2025 SCHEDYOULATER | Powered by Racal</p>
+  </footer>
+</body>
+</html>

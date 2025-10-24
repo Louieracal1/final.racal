@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Forgot Password - SCHEDYOULATER</title>
+  <link rel="stylesheet" href="forgot-password.css">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <h2 class="logo">SCHEDYOULATER</h2>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Log In</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="forgot-section">
+    <div class="forgot-card">
+      <h2>Forgot Your Password? 🔑</h2>
+      <p>Enter your registered email and we’ll send you a reset link.</p>
+
+      <form action="forgot-password.php" method="POST" id="forgotForm">
+        <div class="input-group">
+          <input type="email" name="email" id="email" required />
+          <label for="email">Email Address</label>
+        </div>
+        <button type="submit" class="btn-reset">Send Reset Link</button>
+      </form>
+
+      <p class="links">
+        Remembered your password? <a href="login.html">Log In</a>
+      </p>
+
+      <p id="statusMsg"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 SCHEDYOULATER | Designed for Students by Racal</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('forgotForm');
+    const statusMsg = document.getElementById('statusMsg');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); 
+      statusMsg.textContent = "Processing your request...";
+      statusMsg.style.color = "#004aad";
+
+      setTimeout(() => {
+        statusMsg.textContent = "📧 Password reset link sent to your email!";
+        statusMsg.style.color = "green";
+        form.reset();
+      }, 1500);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact Us - SCHEDYOULATER</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <h2 class="logo">SCHEDYOULATER</h2>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="login.html" class="login-btn">Log In</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="chat-container">
+    <div class="chat-box">
+      <div class="chat-header">
+        <i class="fas fa-comments"></i> SCHEDYOULATER Support Chat
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="bot-message message">👋 Hi there! How can we help you today?</div>
+      </div>
+
+      <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Type your message..." />
+        <button id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 SCHEDYOULATER | Designed for a Smarter Experience</p>
+  </footer>
+
+  <script>
+    const chatMessages = document.getElementById('chatMessages');
+    const userInput = document.getElementById('userInput');
+    const sendBtn = document.getElementById('sendBtn');
+
+    const botReplies = [
+      "Thanks for reaching out! 😊",
+      "Can you please provide more details?",
+      "We'll get back to you shortly!",
+      "Our support team is always here to assist you.",
+      "Have a great day! 🌞"
+    ];
+
+    sendBtn.addEventListener('click', sendMessage);
+    userInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    function sendMessage() {
+      const message = userInput.value.trim();
+      if (message === "") return;
+
+      const userMsg = document.createElement('div');
+      userMsg.className = "message user-message";
+      userMsg.textContent = message;
+      chatMessages.appendChild(userMsg);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      userInput.value = "";
+
+      setTimeout(() => {
+        const botMsg = document.createElement('div');
+        botMsg.className = "message bot-message";
+        botMsg.textContent = botReplies[Math.floor(Math.random() * botReplies.length)];
+        chatMessages.appendChild(botMsg);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

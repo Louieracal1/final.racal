@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reminders - SCHEDYOULATER</title>
+  <link rel="stylesheet" href="reminders.css" />
+</head>
+<body>
+  <header>
+    <h2 class="logo">SCHEDYOULATER</h2>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="class.html">Class</a></li>
+      <li><a href="reminders.html" class="active">Reminders</a></li>
+      <li><a href="account.html">Account</a></li>
+    </ul>
+  </header>
+
+  <main>
+    <h1>🗓️ My Reminders</h1>
+
+    <form id="reminderForm">
+      <label for="task">What To Do / Assignment</label>
+      <input type="text" id="task" placeholder="e.g. Math homework, Group project" required>
+
+      <label for="deadline">Deadline</label>
+      <input type="date" id="deadline" required>
+
+      <label for="notes">Notes / Description</label>
+      <textarea id="notes" placeholder="Add details here..."></textarea>
+
+      <button type="submit">Add Reminder</button>
+    </form>
+
+    <table id="reminderTable">
+      <thead>
+        <tr>
+          <th>What To Do</th>
+          <th>Deadline</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>© 2025 SCHEDYOULATER | Reminders Page</p>
+  </footer>
+
+  <script>
+    const reminderForm = document.getElementById('reminderForm');
+    const reminderTableBody = document.querySelector('#reminderTable tbody');
+
+    reminderForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const task = document.getElementById('task').value.trim();
+      const deadline = document.getElementById('deadline').value;
+      const notes = document.getElementById('notes').value.trim();
+
+      if (!task || !deadline) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${task}</td>
+        <td>${deadline}</td>
+        <td>${notes || '-'}</td>
+      `;
+      reminderTableBody.appendChild(row);
+
+      reminderForm.reset();
+    });
+  </script>
+</body>
+</html>

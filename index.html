@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SCHEDYOULATER</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <h2 class="logo">SCHEDYOULATER</h2>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" class="login-btn">Log In</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to <span>SCHEDYOULATER</span></h1>
+      <p>Your digital gateway to organize, learn, and explore smarter.</p>
+      <div class="buttons">
+        <a href="login.html" class="btn-primary">Get Started</a>
+        <a href="about.html" class="btn-secondary">Learn More</a>
+      </div>
+    </div>
+
+    <div class="scroll-down" onclick="scrollToSection()">
+      <span>▼</span>
+      <p>Explore More</p>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <h2>Why Choose MyWeb?</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>⚡ Fast & Secure</h3>
+        <p>Experience lightning-speed access and data protection built for students and professionals.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🎨 Modern Design</h3>
+        <p>Enjoy a beautiful, responsive layout that adapts to your device seamlessly.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📚 Easy to Use</h3>
+        <p>Simple navigation and intuitive tools to help you focus on what matters most.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 SCHEDYOULATER | Designed for a Smarter Experience</p>
+  </footer>
+
+  <script>
+    function scrollToSection() {
+      document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    const cards = document.querySelectorAll('.feature-card');
+    window.addEventListener('scroll', () => {
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          card.classList.add('visible');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

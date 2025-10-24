@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Register - SCHEDYOULATER</title>
+  <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <h2 class="logo">SCHEDYOULATER</h2>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Log In</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="register-section">
+    <div class="register-card">
+      <h2>Join MyWeb Today 🚀</h2>
+      <p>Create your free account and get started in seconds.</p>
+
+      <form action="register.php" method="POST" id="registerForm">
+        <div class="input-group">
+          <input type="text" name="username" id="username" required />
+          <label for="username">Username</label>
+        </div>
+        <div class="input-group">
+          <input type="email" name="email" id="email" required />
+          <label for="email">Email</label>
+        </div>
+        <div class="input-group">
+          <input type="password" name="password" id="password" required />
+          <label for="password">Password</label>
+        </div>
+        <button type="submit" class="btn-register">Sign Up</button>
+      </form>
+
+      <p class="links">
+        Already have an account? <a href="login.html">Log In</a>
+      </p>
+
+      <p id="statusMsg"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 SCHEDYOULATER | Designed for Students by Racal</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('registerForm');
+    const statusMsg = document.getElementById('statusMsg');
+
+    form.addEventListener('submit', function(e) {
+      statusMsg.textContent = "Creating your account...";
+      statusMsg.style.color = "#004aad";
+
+      setTimeout(() => {
+        statusMsg.textContent = "✅ Account created successfully! Welcome aboard 🎉";
+        statusMsg.style.color = "green";
+        form.reset();
+      }, 1500);
+    });
+  </script>
+
+</body>
+</html>

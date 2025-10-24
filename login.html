@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Log In - SCHEDYOULATER</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <h2 class="logo">SCHEDYOULATER</h2>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" class="active">Log In</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="login-section">
+    <div class="login-card">
+      <h2>Welcome Back 👋</h2>
+      <p>Please log in to continue to your dashboard.</p>
+
+      <form action="login.php" method="POST" id="loginForm">
+        <div class="input-group">
+          <input type="text" name="username" required />
+          <label>Username</label>
+        </div>
+        <div class="input-group">
+          <input type="password" name="password" required />
+          <label>Password</label>
+        </div>
+        <button type="submit" class="btn-login">Log In</button>
+      </form>
+
+      <p class="links">
+        <a href="register.html">Create Account</a> |
+        <a href="forgot.html">Forgot Password?</a>
+      </p>
+
+      <p id="statusMsg"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 SCHEDYOULATER | All Rights Reserved</p>
+  </footer>
+
+  <script>
+  const form = document.getElementById('loginForm');
+  const statusMsg = document.getElementById('statusMsg');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    statusMsg.textContent = "Verifying credentials...";
+    statusMsg.style.color = "#004aad";
+
+    try {
+      const response = await fetch("login.php", {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+
+      if (result.status === "success") {
+        statusMsg.textContent = "✅ Login successful! Redirecting...";
+        statusMsg.style.color = "green";
+        setTimeout(() => {
+          window.location.href = "dashboard.html";
+        }, 1000);
+      } else {
+        statusMsg.textContent = result.message;
+        statusMsg.style.color = "red";
+      }
+    } catch (error) {
+      statusMsg.textContent = "⚠️ Server error, please try again.";
+      statusMsg.style.color = "red";
+    }
+  });
+  </script>
+</body>
+</html>

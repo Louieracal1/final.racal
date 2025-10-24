@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About - SCHEDYOULATER</title>
+  <link rel="stylesheet" href="about.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <h2 class="logo">SCHEDYOULATER</h2>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Log In</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="about-hero">
+    <div class="hero-content">
+      <h1>About Our SCHEDYOULATER</h1>
+      <p>
+        Empowering students to take control of their time. Plan smarter, study better,
+        and achieve balance in your academic life.
+      </p>
+      <button class="cta-btn" onclick="scrollToFeatures()">Learn More</button>
+    </div>
+  </section>
+
+  <section class="about-content" id="features">
+    <h2>What is this website?</h2>
+    <p>
+      The <strong>SCHEDYOULATER</strong> is a <strong>Student Timetable Planner</strong> it is smart, interactive scheduling tool 
+      designed to help students organize classes, manage assignments, and track study habits 
+      all in one place.
+    </p>
+
+    <h2>Key Features</h2>
+    <div class="features">
+      <div class="feature-card" onclick="toggleSection('feature1')">
+        <div class="icon">📅</div>
+        <h3>Interactive Timetable</h3>
+        <p>Drag and drop your subjects to plan your perfect week.</p>
+      </div>
+
+      <div class="feature-card" onclick="toggleSection('feature2')">
+        <div class="icon">🔔</div>
+        <h3>Smart Reminders</h3>
+        <p>Get friendly reminders for your classes and deadlines.</p>
+      </div>
+
+      <div class="feature-card" onclick="toggleSection('feature3')">
+        <div class="icon">📊</div>
+        <h3>Progress Tracking</h3>
+        <p>Visualize your study habits with easy-to-read charts.</p>
+      </div>
+    </div>
+
+    <div id="feature1" class="expand-section">
+      <h4>Interactive Timetable</h4>
+      <p>
+        Rearrange your schedule with our drag-and-drop feature — it’s smooth, fast, and fun!
+      </p>
+    </div>
+
+    <div id="feature2" class="expand-section">
+      <h4>Smart Reminders</h4>
+      <p>
+        Our notification system helps you stay on top of your daily activities effortlessly.
+      </p>
+    </div>
+
+    <div id="feature3" class="expand-section">
+      <h4>Progress Tracking</h4>
+      <p>
+        See where your time goes each week, and use insights to improve your learning habits.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 SCHEDYOULATER | Designed for Students by Racal</p>
+  </footer>
+
+  <script>
+    function scrollToFeatures() {
+      document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function toggleSection(id) {
+      const section = document.getElementById(id);
+      const allSections = document.querySelectorAll('.expand-section');
+      allSections.forEach(sec => {
+        if (sec !== section) sec.style.display = 'none';
+      });
+      section.style.display = section.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
